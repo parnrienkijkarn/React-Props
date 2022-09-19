@@ -15,17 +15,17 @@
     <script type="text/babel">
       const rootElement = document.querySelector("#root");
 
-      function UserProfile() {
+      function UserProfile(props) {
         return (
           <div className="profile">
             <h2>User Profile</h2>
-            <DisplayName />
+            <DisplayName name={props.name} />
           </div>
         );
       }
 
-      function DisplayName() {
-        return <p>Name: </p>;
+      function DisplayName(props) {
+        return <p> Name: {props.name} </p>;
       }
 
       // Start coding here
@@ -33,7 +33,7 @@
         const username = "John";
         return (
           <div className="container">
-            <UserProfile />
+            <UserProfile name={username} />
           </div>
         );
       }
@@ -42,3 +42,5 @@
     </script>
   </body>
 </html>
+
+<!-- งงชิบหาย ต้้องหาเวลาอ่านเพิ่มอีกละ เห้อ -->

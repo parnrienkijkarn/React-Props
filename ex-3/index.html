@@ -19,8 +19,8 @@
         title: "My Lovely Dog",
         image: "https://placedog.net/500",
         content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Praesent vehicula sollicitudin elit. Sed justo leo,
-          consequat ac tortor a, aliquet ultricies nisi. Vestibulum in volutpat lorem`,
+                Praesent vehicula sollicitudin elit. Sed justo leo,
+                consequat ac tortor a, aliquet ultricies nisi. Vestibulum in volutpat lorem`,
         author: "John",
       };
 
@@ -28,24 +28,36 @@
         title: "Hello Hoomannnn :D",
         image: "https://placedog.net/500/300",
         content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Praesent vehicula sollicitudin elit. Sed justo leo,
-          consequat ac tortor a, aliquet ultricies nisi. Vestibulum in volutpat lorem`,
+                Praesent vehicula sollicitudin elit. Sed justo leo,
+                consequat ac tortor a, aliquet ultricies nisi. Vestibulum in volutpat lorem`,
         author: "James",
       };
 
-      function Article() {
-        return (
-          <div className="article">
-            <div className="article-title">Title: </div>
-            <div className="article-image">Preview Image: </div>
-            <div className="article-content">Content: </div>
-            <div className="article-author">Author: </div>
-          </div>
-        );
+      function Article(props) {
+        return <div className="article">{props.children}</div>;
       }
 
       // Start coding here
-      const app = <div className="container"></div>;
+      const app = (
+        <div className="container">
+          <Article>
+            <div className="article-title">Title: {article1.title} </div>
+            <div className="article-image">
+              Preview Image: <img src={article1.image} alt="doggo" />{" "}
+            </div>
+            <div className="article-content">Content: {article1.content} </div>
+            <div className="article-author">Author: {article1.author} </div>
+          </Article>
+          <Article>
+            <div className="article-title">Title: {article2.title} </div>
+            <div className="article-image">
+              Preview Image: <img src={article2.image} alt="doggo" />{" "}
+            </div>
+            <div className="article-content">Content: {article2.content} </div>
+            <div className="article-author">Author: {article2.author} </div>
+          </Article>
+        </div>
+      );
 
       ReactDOM.render(app, rootElement);
     </script>

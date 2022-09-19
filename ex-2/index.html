@@ -33,21 +33,40 @@
         author: "James",
       };
 
-      function Article() {
+      function Article(props) {
         return (
           <div className="article">
-            <div className="article-title">Title: </div>
-            <div className="article-image">Preview Image: </div>
-            <div className="article-content">Content: </div>
-            <div className="article-author">Author: </div>
+            <div className="article-title">Title: {props.title} </div>
+            <div className="article-image">
+              Preview Image: <img src={props.image} alt="doggo" />{" "}
+            </div>
+            <div className="article-content">Content: {props.content}</div>
+            <div className="article-author">Author: {props.author} </div>
           </div>
         );
       }
 
       // Start coding here
-      const app = <div className="container"></div>;
+      const app = (
+        <div className="container">
+          <Article
+            title={article1.title}
+            image={article1.image}
+            content={article1.content}
+            author={article1.author}
+          />
+          <Article
+            title={article2.title}
+            image={article2.image}
+            content={article2.content}
+            author={article2.author}
+          />
+        </div>
+      );
 
       ReactDOM.render(app, rootElement);
     </script>
   </body>
 </html>
+
+<!-- อันนี้ยังไม่ค่อย thorough -->
