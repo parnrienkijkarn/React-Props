@@ -36,12 +36,16 @@
       function Article(props) {
         return (
           <div className="article">
-            <div className="article-title">Title: {props.title} </div>
+            <div className="article-title">Title: {props.article.title} </div>
             <div className="article-image">
-              Preview Image: <img src={props.image} alt="doggo" />{" "}
+              Preview Image: <img src={props.article.image} alt="doggo" />{" "}
             </div>
-            <div className="article-content">Content: {props.content}</div>
-            <div className="article-author">Author: {props.author} </div>
+            <div className="article-content">
+              Content: {props.article.content}
+            </div>
+            <div className="article-author">
+              Author: {props.article.author}{" "}
+            </div>
           </div>
         );
       }
@@ -49,7 +53,19 @@
       // Start coding here
       const app = (
         <div className="container">
-          <Article
+          <Article article={article1} />
+          <Article article={article2} />
+        </div>
+      );
+
+      ReactDOM.render(app, rootElement);
+    </script>
+  </body>
+</html>
+
+<!-- อันนี้ยังไม่ค่อย thorough -->
+<!-- หรือใช้แบบนี้ แต่ไม่ต้อง {props.article.title} ในไลน์ 39 ใช้ {props.title} พอ
+            <Article
             title={article1.title}
             image={article1.image}
             content={article1.content}
@@ -60,13 +76,4 @@
             image={article2.image}
             content={article2.content}
             author={article2.author}
-          />
-        </div>
-      );
-
-      ReactDOM.render(app, rootElement);
-    </script>
-  </body>
-</html>
-
-<!-- อันนี้ยังไม่ค่อย thorough -->
+          /> -->
